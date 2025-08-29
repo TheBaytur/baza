@@ -36,7 +36,10 @@ class _UserAddressWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('New York, USA');
+    return Text(
+      'New York, USA',
+      style: TextStyle(color: Colors.grey, fontSize: 15),
+    );
   }
 }
 
@@ -45,7 +48,10 @@ class _UserPhoneWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('+1 (234) 567-89-00');
+    return Text(
+      '+1 (234) 567-89-00',
+      style: TextStyle(color: Colors.grey, fontSize: 16),
+    );
   }
 }
 

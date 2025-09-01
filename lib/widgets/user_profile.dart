@@ -6,18 +6,42 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(title: Text('Settings')),
       body: Container(
-        color: Colors.white,
+        color: Colors.grey[200],
         child: Container(
           width: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _UserInfo(),
-            ],
+            children: [_UserInfo(), SizedBox(height: 20), _MenuWidget()],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _MenuWidget extends StatelessWidget {
+  const _MenuWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Icon(Icons.save_sharp, color: Colors.blue),
+              Text('  Favorites', style: TextStyle(fontSize: 18)),
+              Icon(Icons.chevron_right_sharp, color: Colors.grey),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -29,18 +53,19 @@ class _UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       color: Colors.white,
       child: Column(
         children: [
           SizedBox(height: 20),
-                _AvatarWidget(),
-                SizedBox(height: 20),
-                _UserNameWidget(),
-                SizedBox(height: 10),
-                _UserPhoneWidget(),
-                SizedBox(height: 10),
-                _UserAddressWidget(),
-                SizedBox(height: 10),
+          _AvatarWidget(),
+          SizedBox(height: 20),
+          _UserNameWidget(),
+          SizedBox(height: 10),
+          _UserPhoneWidget(),
+          SizedBox(height: 10),
+          _UserAddressWidget(),
+          SizedBox(height: 10),
         ],
       ),
     );
@@ -86,8 +111,6 @@ class _UserNameWidget extends StatelessWidget {
     );
   }
 }
-
-
 
 class _AvatarWidget extends StatelessWidget {
   const _AvatarWidget({super.key});

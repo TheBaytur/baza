@@ -31,15 +31,28 @@ class _MenuWidget extends StatelessWidget {
     return Container(
       color: Colors.white,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      
       child: Column(
         children: [
-          Row(
+          Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child :Row(
             children: [
               Icon(Icons.save_sharp, color: Colors.blue),
               Expanded(child: Text('  Favorites', style: TextStyle(fontSize: 18))),
               Icon(Icons.chevron_right_sharp, color: Colors.grey),
             ],
+          ),
+          ),
+          Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child :Row(
+            children: [
+              Icon(Icons.call, color: Colors.green),
+              Expanded(child: Text('  Calls', style: TextStyle(fontSize: 18))),
+              Icon(Icons.chevron_right_sharp, color: Colors.grey),
+            ],
+          ),
           ),
         ],
       ),

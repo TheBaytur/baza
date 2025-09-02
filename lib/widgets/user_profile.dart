@@ -37,7 +37,7 @@ class _MenuWidget extends StatelessWidget {
           Row(
             children: [
               Icon(Icons.save_sharp, color: Colors.blue),
-              Text('  Favorites', style: TextStyle(fontSize: 18)),
+              Expanded(child: Text('  Favorites', style: TextStyle(fontSize: 18))),
               Icon(Icons.chevron_right_sharp, color: Colors.grey),
             ],
           ),

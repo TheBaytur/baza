@@ -54,6 +54,16 @@ class _MenuWidget extends StatelessWidget {
             ],
           ),
           ),
+          Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child :Row(
+            children: [
+              Icon(Icons.computer, color: Colors.deepOrangeAccent),
+              Expanded(child: Text('  Devices', style: TextStyle(fontSize: 18))),
+              Icon(Icons.chevron_right_sharp, color: Colors.grey),
+            ],
+          ),
+          ),
         ],
       ),
     );

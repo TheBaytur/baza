@@ -68,8 +68,9 @@ class _MenuWidget extends StatelessWidget {
       width: double.infinity,
       
       child: Column(
+        
         children: 
-          menuRow.map((data) => _MenuWidgetRow(data: data)).toList(),
+          menuRow.map((data) => _MenuWidgetRow(data: data)).toList(),  
             
             
           ),
@@ -95,6 +96,7 @@ class _MenuWidgetRow extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(child: Text(data.text, style: TextStyle(fontSize: 18))),
               Icon(Icons.chevron_right_sharp),
+              
             ],
           ),
           );

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({super.key});
+  List <MenuRowData> menuRow = [
+    MenuRowData(icon: Icons.settings, text: 'Settings', color: Colors.blue),
+    MenuRowData(icon: Icons.payment, text: 'Payment', color: Colors.green),
+    MenuRowData(icon: Icons.history, text: 'Ride History', color: Colors.orange),
+    MenuRowData(icon: Icons.support, text: 'Support', color: Colors.red),
+    MenuRowData(icon: Icons.info, text: 'About', color: Colors.purple),
+  ];
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,9 @@ class UserProfile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [_UserInfo(), SizedBox(height: 20), _MenuWidget()],
+            children: [_UserInfo(), SizedBox(height: 20), 
+            _MenuWidget(menuRow : menuRow),
+            ],
           ),
         ),
       ),
@@ -23,8 +33,25 @@ class UserProfile extends StatelessWidget {
   }
 }
 
+class MenuRowData {
+  final IconData icon;
+  final String text;
+  final Color color;
+
+  MenuRowData({
+    required this.icon,
+    required this.text,
+    required this.color,
+  });
+}
+
 class _MenuWidget extends StatelessWidget {
-  const _MenuWidget({super.key});
+  final List<MenuRowData> menuRow; 
+  
+  const _MenuWidget({
+    Key? key,
+    required this.menuRow,
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,40 +60,36 @@ class _MenuWidget extends StatelessWidget {
       width: double.infinity,
       
       child: Column(
-        children: [
-          Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child :Row(
-            children: [
-              Icon(Icons.save_sharp, color: Colors.blue),
-              Expanded(child: Text('  Favorites', style: TextStyle(fontSize: 18))),
-              Icon(Icons.chevron_right_sharp, color: Colors.grey),
-            ],
+        children: 
+          menuRow.map((data) => _MenuWidgetRow(data: data)).toList(),
+            
+            
           ),
-          ),
-          Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child :Row(
-            children: [
-              Icon(Icons.call, color: Colors.green),
-              Expanded(child: Text('  Calls', style: TextStyle(fontSize: 18))),
-              Icon(Icons.chevron_right_sharp, color: Colors.grey),
-            ],
-          ),
-          ),
-          Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child :Row(
-            children: [
-              Icon(Icons.computer, color: Colors.deepOrangeAccent),
-              Expanded(child: Text('  Devices', style: TextStyle(fontSize: 18))),
-              Icon(Icons.chevron_right_sharp, color: Colors.grey),
-            ],
-          ),
-          ),
-        ],
-      ),
     );
+  }          
+  }
+
+
+class _MenuWidgetRow extends StatelessWidget {
+  final MenuRowData data;
+
+  const _MenuWidgetRow({
+    Key? key,
+    required this.data,}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child :Row(
+            children: [
+              Icon(data.icon, color: data.color),
+              SizedBox(width: 10),
+              Expanded(child: Text(data.text, style: TextStyle(fontSize: 18))),
+              Icon(Icons.chevron_right_sharp),
+            ],
+          ),
+          );
   }
 }
 

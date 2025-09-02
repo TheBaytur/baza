@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatelessWidget {
-  List <MenuRowData> menuRow = [
+  List <MenuRowData> firstMenuRow = [
     MenuRowData(icon: Icons.settings, text: 'Settings', color: Colors.blue),
     MenuRowData(icon: Icons.payment, text: 'Payment', color: Colors.green),
     MenuRowData(icon: Icons.history, text: 'Ride History', color: Colors.orange),
     MenuRowData(icon: Icons.support, text: 'Support', color: Colors.red),
     MenuRowData(icon: Icons.info, text: 'About', color: Colors.purple),
   ];
+  List <MenuRowData> secondMenuRow = [
+    MenuRowData(icon: Icons.language, text: 'Language', color: Colors.deepPurpleAccent),
+    MenuRowData(icon: Icons.person_add, text: 'Invite a Friend', color: Colors.teal),
+    MenuRowData(icon: Icons.logout, text: 'Logout', color: Colors.black),
+  ];
+
 
   
 
@@ -24,7 +30,9 @@ class UserProfile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [_UserInfo(), SizedBox(height: 20), 
-            _MenuWidget(menuRow : menuRow),
+            _MenuWidget(menuRow : firstMenuRow),
+            SizedBox(height: 20),
+            _MenuWidget(menuRow : secondMenuRow),
             ],
           ),
         ),

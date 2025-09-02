@@ -10,7 +10,7 @@ class UserProfile extends StatelessWidget {
   ];
   List <MenuRowData> secondMenuRow = [
     MenuRowData(icon: Icons.language, text: 'Language', color: Colors.deepPurpleAccent),
-    MenuRowData(icon: Icons.person_add, text: 'Invite a Friend', color: Colors.teal),
+    MenuRowData(icon: Icons.settings, text: 'Settings', color: Colors.teal),
     MenuRowData(icon: Icons.logout, text: 'Logout', color: Colors.black),
   ];
 
